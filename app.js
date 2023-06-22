@@ -3,7 +3,7 @@ import connectDb from './db/connect.js';
 import express from 'express';
 import beerRouter from './router/BeerRouter.js';
 import ingRouter from './router/IngredientRouter.js'
-import cors from './cors/cors.js';
+import cors from 'cors';
 
 const port = process.env.PORT
 const app = express();
