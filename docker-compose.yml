@@ -1,0 +1,19 @@
+services:
+
+  mongodb:
+    image: mongo:latest #use the latest image.
+    container_name: mongo
+    restart: unless-stopped
+    volumes: # pour garder les donn├®es
+      - ./database-data:/data/db
+    ports:
+      - 27017:27017
+
+  mongo-express:
+    image: mongo-express
+    restart: unless-stopped
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://mongo:27017/
+

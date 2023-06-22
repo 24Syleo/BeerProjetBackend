@@ -1,0 +1,8 @@
+#Projet biere API RestFull 
+##endpoit /beer et /ingredient
+### node js express mongoose mongodb dotenv validator
+####database-data stock les infos
+node_modules
+.env
+database-data
+
