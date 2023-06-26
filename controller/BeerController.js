@@ -43,7 +43,7 @@ class BeerController{
     static async deleteBeer(req,res){
         try{
             const beerId = req.params.id;
-            const beer = await Beer.deleteOne({beerId});
+            const beer = await Beer.deleteById({beerId});
             return beer;
         }
         catch(error){
