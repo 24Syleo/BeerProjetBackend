@@ -38,6 +38,18 @@ class BeerController{
             res.status(404).send('not found');
         }
     }
+
+    //supprimer une bière
+    static async deleteBeer(req,res){
+        try{
+            const beerId = req.params.id;
+            const beer = await Beer.deleteOne({beerId});
+            return beer;
+        }
+        catch(error){
+            res.status(404).send('not found');
+        }
+    }
 }
 
 export default BeerController;

@@ -9,5 +9,7 @@ beerRouter.post("/", BeerController.createBeer);
 beerRouter.get("/:id", BeerController.oneBeer);
 //liste des bières
 beerRouter.get("/", BeerController.listBeer);
+//delete une beer
+beerRouter.delete("/:id", BeerController.deleteBeer);
 
 export default beerRouter;
