@@ -42,8 +42,8 @@ class BeerController{
     //supprimer une bière
     static async deleteBeer(req,res){
         try{
-            const beerId = req.params.id;
-            const beer = await Beer.deleteById({beerId});
+            console.log(req.params.id);
+            const beer = await Beer.deleteOne({_id: req.params.id});
             return beer;
         }
         catch(error){
