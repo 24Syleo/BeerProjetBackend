@@ -35,8 +35,13 @@ app.use("/beer", beerRouter);
 app.use("/ingredient", ingRouter);
 
 io.on("connection", (socket) => {
-    console.log("connected");
-    socket.emit('connection', null);
+    console.log("connection réussi");
+    socket.on("disconnect",()=>{
+        console.log("deconnexion")
+    });
+    socket.on("connection",()=>{
+        io.emit("connection","quelquechoses");
+    })
 });
 
 server.listen(port, () => console.log('listening on port: ' + port));
