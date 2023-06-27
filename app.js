@@ -22,9 +22,7 @@ app.use("/ingredient", ingRouter);
 
 io.on("connection", (socket) => {
     console.log("connected");
-    socket.on("disconnect",()=>{
-        console.log("disconnected");
-    });
+    socket.emit('connection', null);
 });
 
 server.listen(port, () => console.log('listening on port: ' + port));
