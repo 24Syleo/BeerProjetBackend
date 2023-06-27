@@ -10,9 +10,23 @@ import cors from 'cors';
 const port = process.env.PORT
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+
+const corsOptions = {
+    origin: process.env.CLIENT_URL,
+    // credentials: true,
+    // allowedHeaders: ['sessionId', 'Content-Type'],
+    // exposedHeaders: ['sessionId'],
+    // methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    // preflightContinue: false
+}
+
+const io = new Server(server,{
+    cors: corsOptions
+});
 
 connectDb().catch(err => console.log(err));
+
+
 
 app.use(cors());
 app.use(express.json());
