@@ -26,8 +26,6 @@ const io = new Server(server,{
 
 connectDb().catch(err => console.log(err));
 
-
-
 app.use(cors());
 app.use(express.json());
 
@@ -39,9 +37,6 @@ io.on("connection", (socket) => {
     socket.on("disconnect",()=>{
         console.log("deconnexion")
     });
-    socket.on("connection",()=>{
-        io.emit("connection","quelquechoses");
-    })
 });
 
 server.listen(port, () => console.log('listening on port: ' + port));
